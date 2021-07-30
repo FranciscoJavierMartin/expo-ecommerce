@@ -6,14 +6,14 @@ import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import HomeScreen from '../screens/HomeScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import CartScreen from '../screens/CartScreen';
-import AccountScreen from '../screens/AccountScreen';
 import colors from '../styles/colors';
 import {
-  ACCOUNT_SCREEN_NAME,
-  CART_SCREEN_NAME,
-  FAVORITES_SCREEN_NAME,
-  HOME_SCREEN_NAME,
+  ACCOUNT_STACK_NAME,
+  CART_STACK_NAME,
+  FAVORITES_STACK_NAME,
+  HOME_STACK_NAME,
 } from '../constants/screens';
+import AccountStack from './AccountStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -27,16 +27,16 @@ const setIcon = (
   let iconName: string;
 
   switch (route.name) {
-    case HOME_SCREEN_NAME:
+    case HOME_STACK_NAME:
       iconName = 'home';
       break;
-    case FAVORITES_SCREEN_NAME:
+    case FAVORITES_STACK_NAME:
       iconName = 'heart';
       break;
-    case CART_SCREEN_NAME:
+    case CART_STACK_NAME:
       iconName = 'shopping-cart';
       break;
-    case ACCOUNT_SCREEN_NAME:
+    case ACCOUNT_STACK_NAME:
       iconName = 'user';
       break;
     default:
@@ -55,23 +55,23 @@ const AppNavigation: React.FC = () => {
         })}
       >
         <Tab.Screen
-          name={HOME_SCREEN_NAME}
+          name={HOME_STACK_NAME}
           component={HomeScreen}
           options={{ title: 'Home' }}
         />
         <Tab.Screen
-          name={FAVORITES_SCREEN_NAME}
+          name={FAVORITES_STACK_NAME}
           component={FavoritesScreen}
           options={{ title: 'Favorites' }}
         />
         <Tab.Screen
-          name={CART_SCREEN_NAME}
+          name={CART_STACK_NAME}
           component={CartScreen}
           options={{ title: 'Cart' }}
         />
         <Tab.Screen
-          name={ACCOUNT_SCREEN_NAME}
-          component={AccountScreen}
+          name={ACCOUNT_STACK_NAME}
+          component={AccountStack}
           options={{ title: 'My Account' }}
         />
       </Tab.Navigator>
